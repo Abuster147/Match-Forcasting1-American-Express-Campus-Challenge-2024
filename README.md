@@ -1,6 +1,6 @@
 # Match-Forcasting1-American-Express-Campus-Challenge-2024
 Match Forcasting | American Express Campus Challenge 2024
-) generate team ratings via ridge (glmnet)/mixed effects (lme4) regressions predicting point difference, offense/defense efficiency, offense/defense pace, etc. (i.e. what is team A's impact on offense efficiency, score difference, etc. after controlling for opponent, home court, etc.?). I also fit a 'matchup adjustment' mixed effects model, which tries to predict if a team will play up or down to the competition.
+1) generate team ratings via ridge (glmnet)/mixed effects (lme4) regressions predicting point difference, offense/defense efficiency, offense/defense pace, etc. (i.e. what is team A's impact on offense efficiency, score difference, etc. after controlling for opponent, home court, etc.?). I also fit a 'matchup adjustment' mixed effects model, which tries to predict if a team will play up or down to the competition.
 
 2) use team ratings from 1) to predict team level offensive efficiency (points/possession) and pace (possessions) for each game (via XGBoost)
 
