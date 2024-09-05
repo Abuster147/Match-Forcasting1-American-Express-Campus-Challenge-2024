@@ -1,0 +1,50 @@
+#include <iostream>
+#include <string>
+
+// Function to calculate the Luhn checksum and find the 15th digit
+int generate15thDigit(const std::string& digits14) {
+    int total = 0;
+    bool even = true;
+    int n = digits14.length();
+
+    // Iterate from right to left
+    for (int i = n - 1; i >= 0; --i) {
+        int digit = digits14[i] - '0';
+        if (digit < 0 || digit > 9) {
+            // Invalid input: non-digit character
+            throw std::invalid_argument("Input must contain only digits");
+        }
+        if (even) {
+            digit <<= 1; // Double the digit
+        }
+        even = !even;
+        total += digit > 9 ? digit - 9 : digit;
+    }
+
+    // Calculate the 15th digit that makes the total checksum divisible by 10
+    int checksum = (10 - (total % 10)) % 10;
+    return checksum;
+}
+
+int main() {
+    std::string digits14;
+    int t = 10;
+    while(t--){
+         std::cin >> digits14;
+         try {
+        int digit15 = generate15thDigit(digits14);
+        std::cout << "The 15th digit is: " << digit15 << std::endl;
+    } catch (const std::invalid_argument& e) {
+        std::cerr << e.what() << std::endl;
+        return 1;
+    }
+
+    }
+    
+   
+
+    
+
+    
+    return 0;
+}
